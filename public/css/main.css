@@ -1,0 +1,186 @@
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+	list-style-type: none;
+}
+html {
+	font-size: 16px;
+}
+body {
+	font-size: 62.5%;
+	background: black;
+	font-family: cursive;
+}
+h2 {
+	text-align: left;
+}
+h1, h2, h3, h4 {
+	text-align: center;
+	margin-bottom: 2vh;
+}
+h1 {
+	font-size: 2.5em;
+}
+h2 {
+	font-size: 2.1em;
+}
+h3 {
+	font-size: 1.8em;
+}
+#mainH1 {
+	text-decoration: none;
+}
+.errList {
+	background: red;
+	color: white;
+	width: 100%;
+	z-index: 98;
+	position: fixed;
+	bottom: 0;
+	font-size: 2em;
+}
+.l4L {
+	color: white;
+	background: black;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	z-index: 99;
+	padding-top: 2vh;
+}
+.entryDisplay {
+	background: lightblue;
+	padding: 1%;
+	width: 50%;
+	margin: 0 auto;
+}
+.margeBtm {
+	margin-bottom: 2vh;
+}
+.forms {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.4em;
+}
+.forms input {
+	padding: 1%;
+	margin-bottom: 2vh;
+}
+.formBtn {
+	padding: 1%;
+	border: 1px solid black;
+}
+.numberHistory {
+	display: flex;
+	justify-content: space-around;
+	width: 80%;
+	margin: 0 auto;
+	background: #cccccc;
+	padding: 2%;
+	height: 50vh;
+	overflow: hidden;
+}
+.histItem {
+	background: #eeeeee;
+	margin-bottom: 2vh;
+	padding: 1%;
+	width: 100%;
+	border-radius: 10px;
+	text-align: center;
+}
+.numberHistory div {
+	width: 45%;
+	background: white;
+}
+.numberHistory li {
+	font-size: 1.8em;
+	background: lightblue;
+}
+.numberHistory h2 {
+	position: sticky;
+	top: -25px;
+	background: white;
+	width: 100%;
+	padding: 1%;
+}
+#userResults, #winningResults {
+	overflow: auto;
+	padding: 2%;
+}
+#ticketWinners {
+	text-align: center;
+	padding: 2%;
+	margin: 0 auto;
+	background: #aaaaaa;
+	width: 80%;
+}
+.flexed {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.flexed div {
+	width: 30%;
+	margin-bottom: 2vh;
+	background: hsl(140, 100%, 87%);
+	border-radius: 10px;
+}
+.flexed div:last-child {
+	margin-right: 0;
+}
+.flexed ul {
+	padding: 5%;
+}
+.increaseFont {
+	font-size: 1.6em;
+}
+.increaseFont2 {
+	font-size: 2em;
+}
+.winLose {
+	text-align: center;
+	padding: 2%;
+	margin: 0 auto;
+	background: #cccccc;
+	width: 80%;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 5vh;
+}
+.won {
+	width: 20%;
+	margin-right: 2%;
+	background: green;
+	border-radius: 10px;
+	padding: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1%;
+	margin: 0;
+}
+.lost {
+	width: 20%;
+	margin-right: 2%;
+	background: red;
+	border-radius: 10px;
+	padding: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1%;
+	margin: 0;
+}
+#closeErr {
+	position: absolute;
+	right: 3%;
+	top: 1vh;
+	text-decoration: none;
+	color: white;
+	font-size: 1em;
+}

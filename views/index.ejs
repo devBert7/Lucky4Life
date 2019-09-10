@@ -1,0 +1,138 @@
+<%include partials/header%>
+	<%if (errors) {%>
+		<ul class="errList">
+			<%errors.forEach(err => {%>
+				<li class="errItem"><%=err.msg%></li>
+			<%});%>
+			<li><a href="#" id="closeErr">Close</a></li>
+		</ul>
+	<%}%>
+	<a href="#" id="mainH1"><h1 class="l4L">Lucky For Life Tracker</h1></a>
+	<div class="entryDisplay">
+		<div>
+			<h1>User Numbers Entry Form</h1>
+			<form class="forms" id="userForm" method="POST" action="/user/entry">
+				<label for="userNumEntry">Enter Your Numbers</label>
+				<input type="text" placeholder="1, 2, 3, 4, 5, 6" id="userNumbers" name="userNumEntry" />
+				<label for="userDateEntry">Enter Drawing Date</label>
+				<input type="date" id="userDate" name="userDateEntry" />
+				<input class="formBtn" type="submit" value="Track" />
+			</form>
+		</div>
+		<div>
+			<h2 id="showUserNumbs">Most Recent User Entry</h2>
+			<%if (userHist.length === 0){%>
+				<ul>
+					<li>No Data</li>
+				</ul>
+			<%} else {%>
+				<h3><%=`Your Numbers: ${userHist[userHist.length - 1][0]}`%></h3>
+				<h3><%=`Drawing Date: ${userHist[userHist.length - 1][1]}`%></h3>
+			<%}%>
+		</div>
+	</div>
+	<div class="entryDisplay margeBtm">
+		<div>
+			<h1>Winning Numbers Entry Form</h1>
+			<form id="winningForm" method="POST" action="win/entry" class="forms">
+				<label for="winNumEntry">Enter Winning Numbers</label>
+				<input type="text" placeholder="1, 2, 3, 4, 5, 6" id="winningNumbers" name="winNumEntry" />
+				<label for="winDateEntry">Enter Drawing Date</label>
+				<input type="date" id="winningDate" name="winDateEntry" />
+				<input class="formBtn" type="submit" value="Track" />
+			</form>
+		</div>
+		<div>
+			<h2 id="showWinningNumbs">Most Recent Winning Entry</h2>
+			<%if (winHist.length === 0){%>
+				<ul>
+					<li>No Data</li>
+				</ul>
+			<%} else {%>
+				<h3><%=`Your Numbers: ${winHist[winHist.length - 1][0]}`%></h3>
+				<h3><%=`Drawing Date: ${winHist[winHist.length - 1][1]}`%></h3>
+			<%}%>
+		</div>
+	</div>
+	<div class="numberHistory">
+		<div id="userResults">
+			<h2>User Number History</h2>
+			<ul>
+				<%if (userHist.length > 0) {%>
+					<%userHist.forEach(item => {%>
+						<li class="histItem">
+							<%=`${item[0]} - ${item[1]}`%>
+							<a href="#" class='delUserEntry' data-id="<%=item[2]%>">Delete</a>
+						</li>
+					<%});%>
+				<%} else {%>
+					<h3><%='No Data'%></h3>
+				<%}%>
+			</ul>
+		</div>
+		<div id="winningResults">
+			<h2>Winning Number History</h2>
+			<ul>
+				<%if (winHist.length > 0) {%>
+					<%winHist.forEach(item => {%>
+						<li class="histItem">
+							<%=`${item[0]} - ${item[1]}`%>
+							<a href="#" class='delUserEntry' data-id="<%=item[2]%>">Delete</a>
+						</li>
+					<%});%>
+				<%} else {%>
+					<h3><%='No Data'%></h3>
+				<%}%>
+			</ul>
+		</div>
+	</div>
+	<div id="ticketWinners">
+		<h2>Matching Tickets</h2>
+			<div class="flexed">
+				<%if (matchMap.length > 0) {%>
+					<%matchMap.forEach(set => {%>
+						<div>
+							<ul>
+								<li class="margeBtm">
+									<h3 class="increaseFont2"><%=set[2]%></h3>
+									<h4 class="increaseFont"><%=set[0]%></h4>
+									<h4 class="increaseFont"><%=set[1]%></h4>
+								</li>
+							</ul>
+						</div>
+					<%});%>
+				<%} else {%>
+					<h3><%='No Data'%></h3>
+				<%}%>
+			</div>
+	</div>
+	<div class="winLose">
+		<div class="lost">
+			<div>
+				<h2>Lifetime Purchase Amount</h2>
+				<h3><%=`$${totalCost}`%></h3>
+			</div>
+		</div>
+		<div class="won">
+			<div>
+				<h2>Lifetime Winning Amount</h2>
+				<h3><%=`$${totalWon}`%></h3>
+			</div>
+		</div>
+		<%if (Math.sign(totalWon - totalCost) === -1) {%>
+		<div class="lost">
+			<div>
+				<h2>The Difference</h2>
+				<h3><%=`$${-1 * (totalWon - totalCost)}`%></h3>
+			</div>
+		</div>
+		<%} else {%>
+			<div class="won">
+			<div>
+				<h2>The Difference</h2>
+				<h3><%=`$${totalWon - totalCost}`%></h3>
+			</div>
+		</div>
+		<%}%>
+	</div>
+<%include partials/footer%>
